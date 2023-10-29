@@ -4,8 +4,28 @@
     Home
 {% endblock %}
 
-{% block head %}{% endblock %}
+{% block head %}
+<!-- LEAFLET -->  <!-- define library leaflet -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+<style>
+    #peta{
+        height: 500px;
+    }
+</style>
+{% endblock %}
 
 {% block body %}
     <h1>Testing Inheritance HTML</h1>
+    <div id="peta">TAMPILAN PETA</div>
+
+    <script>
+        const peta = L.map('peta').setView([11.599919240521956, 165.37715873781235], 11);
+        
+        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+          maxZoom: 19,
+          attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+        }).addTo(peta);
+    </script>
 {% endblock %}
