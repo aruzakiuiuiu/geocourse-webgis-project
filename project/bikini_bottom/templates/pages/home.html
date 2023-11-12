@@ -32,7 +32,17 @@
         fetch('{ % url "home_api" % }')
         .then(response => response.json())
         .then(function(json){
-            L.geoJSON(json).addTo(peta)
+            L.geoJSON(json, {
+                onEachFeature: function(feature, layer){
+                    layer.bindPopup(feature.properties.name)
+                    layer.bindPopup(
+                        `
+                        <h5>${feature.properties.name}</h5>
+                        `
+                    )
+                }
+            }
+            ).addTo(peta)
         })
     </script>
 {% endblock %}

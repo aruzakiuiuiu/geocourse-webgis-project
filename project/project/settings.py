@@ -144,3 +144,12 @@ if os.name == 'nt':
         VENV_BASE, 'Lib\\site-packages\\osgeo') + ';' + os.environ['PATH']
     os.environ['PROJ_LIB'] = os.path.join(
         VENV_BASE, 'Lib\\site-packages\\osgeo\\data\\proj') + ';' + os.environ['PATH']
+    
+#LEAFLET SETTINGS
+LEAFLET_CONFIG = {
+    'DEFAULT_CENTER': [11.599919240521956, 165.37715873781235],
+    'DEFAULT_ZOOM': 11,
+    'MIN_ZOOM': 3,
+    'MAX_ZOOM': 18,
+    'TILES': 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
+}
